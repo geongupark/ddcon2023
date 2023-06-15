@@ -10,12 +10,11 @@ import HeroLottie from "./components/Section/HeroLottie.vue";
 <template>
   <div class="conference-website bg-slate-900 w-full h-screen">
     <!-- <NavBar></NavBar> -->
-    <main class="main pt-10">
-      <HeroLottie></HeroLottie>
-      <!-- <Hero></Hero>
+
+    <HeroLottie></HeroLottie>
+    <!-- <Hero></Hero>
       <Session></Session>
       <Event></Event>
       <Qna></Qna> -->
-    </main>
   </div>
 </template>
