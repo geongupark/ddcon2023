@@ -5,6 +5,8 @@ import TurnPlanet from "../../assets/turn-planet.json";
 import PlanetMasa from "../../assets/planet-masa-bimbingan.json";
 import Astronaut from "../../assets/astronaut.json";
 import { gsap } from "gsap";
+import axios from "axios";
+
 const FollowBox = ".relative .FollowBox";
 
 const rocketReady = ref();
@@ -48,6 +50,35 @@ onMounted(() => {
     );
   });
 });
+
+function test() {
+  const headers = {
+    Accept: "*/*",
+    "Content-Type": "application/json", // Set the appropriate Content-Type header
+    // Origin: "192.168.219.102:5173",
+  };
+
+  const data = {
+    test: "test",
+  };
+
+  const instance = axios.create({
+    httpsAgent: {
+      rejectUnauthorized: false,
+    },
+  });
+
+  instance
+    .post("http://192.168.219.105:8000/helloworld/", data, { headers })
+    .then((response) => {
+      // Handle the response data
+      console.log(response.data);
+    })
+    .catch((error) => {
+      // Handle the error
+      console.error(error);
+    });
+}
 </script>
 <template>
   <kinesis-container>
@@ -88,4 +119,5 @@ onMounted(() => {
       </kinesis-element>
     </div>
   </kinesis-container>
+  <button @click="test">testetst</button>
 </template>
