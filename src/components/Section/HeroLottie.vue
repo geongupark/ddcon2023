@@ -13,8 +13,8 @@ const rocketReady = ref();
 const planetMasa = ref();
 onMounted(() => {
   // the DOM element will be assigned to the ref after initial render
-  rocketReady.value.play();
-  planetMasa.value.play();
+  // rocketReady.value.play();
+  // planetMasa.value.play();
 
   gsap.set(FollowBox, {
     xPercent: -5,
@@ -83,39 +83,39 @@ function test() {
 <template>
   <kinesis-container>
     <div class="relative w-full h-screen">
-      <lottie-animation
+      <LottieAnimation
         ref="planetMasa"
         class="absolute top-10 right-10 h-36"
         :animationData="PlanetMasa"
         :loop="true"
         :autoPlay="true"
         :speed="1"
-      ></lottie-animation>
-      <lottie-animation
+      ></LottieAnimation>
+      <LottieAnimation
         class="FollowBox absolute top-1 left-1 h-48"
         :animationData="Astronaut"
         :loop="true"
         :autoPlay="true"
         :speed="1"
-      ></lottie-animation>
+      ></LottieAnimation>
       <kinesis-element class="absolute top-10 left-10" :strength="20">
-        <lottie-animation
+        <LottieAnimation
           class=""
           :animationData="TurnPlanet"
           :loop="true"
           :autoPlay="true"
           :speed="1"
-        ></lottie-animation>
+        ></LottieAnimation>
       </kinesis-element>
       <kinesis-element class="absolute bottom-0 right-0" :strength="30">
-        <lottie-animation
+        <LottieAnimation
           class="h-96 md:h-[40rem]"
           ref="rocketReady"
           :animationData="RocketLaunch"
           :loop="true"
           :autoPlay="true"
           :speed="1"
-        ></lottie-animation>
+        ></LottieAnimation>
       </kinesis-element>
     </div>
   </kinesis-container>
