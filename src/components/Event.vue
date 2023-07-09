@@ -32,7 +32,7 @@ eventData.value = [
     title: "DD마켓 참여하고 득템 해보세요!",
     image: Cart,
     defaultFrame: 36,
-    desc: "DD마켓에 물건을 올리거나 DD마켓의 물건을 구매해보세요",
+    desc: "DD마켓에 물건을 올리거나 물건을 구매해보세요",
   },
   {
     title: "럭키 드로우로 엄청난 상품을...!!",

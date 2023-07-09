@@ -43,14 +43,16 @@ function stopAnim() {
 </script>
 <template>
   <div
-    class="w-full m-1 p-3 h-[400px] bg-slate-700/[0.7] rounded-2xl"
+    class="w-full m-2 p-6 h-[400px] bg-slate-900/[0.5] rounded-2xl"
     @mouseenter="startAnim()"
     @mouseleave="stopAnim()"
   >
-    <div class="text-orange-400 font-semibold mb-2">
-      이벤트 {{ eventNumber }}
+    <div class="text-purple-400 font-semibold mb-3">
+      EVENT {{ eventNumber }}
     </div>
-    <div class="text-orange-200 text-xl font-bold">{{ eventTitle }}</div>
+    <div class="text-white text-xl font-bold">
+      {{ eventTitle }}
+    </div>
     <div class="h-[200px]">
       <LottieAnimation
         class="h-[200px]"
@@ -62,6 +64,6 @@ function stopAnim() {
       >
       </LottieAnimation>
     </div>
-    <div class="text-orange-200">{{ eventDesc }}</div>
+    <div class="text-orange-100 text-sm">{{ eventDesc }}</div>
   </div>
 </template>
