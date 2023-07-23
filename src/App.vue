@@ -1,6 +1,7 @@
 <script setup>
 import VideoPlay from "./components/hero/VideoPlay.vue";
 import Event from "./components/Event.vue";
+import Comments from "./components/comment/Comments.vue";
 import axios from "axios";
 import { ref, onMounted, inject } from "vue";
 import gsap from "gsap";
@@ -110,7 +111,7 @@ onMounted(() => {
     <VideoPlay class="w-full"></VideoPlay>
     <div class="h-40">{{ visitorCount }}</div>
     <Event></Event>
-    <div class="box1 bg-red-200 relative h-[2000px]">
+    <!-- <div class="box1 bg-red-200 relative h-[2000px]">
       <img class="ufo absolute left-20 top-20" src="@/assets/ufo.png" />
     </div>
     <div class="box2 bg-red-200 relative h-[2000px]">
@@ -118,7 +119,8 @@ onMounted(() => {
         class="astronaut h-28 absolute left-20 top-20"
         src="@/assets/astronaut.png"
       />
-    </div>
+    </div> -->
+    <Comments></Comments>
   </div>
 </template>
 

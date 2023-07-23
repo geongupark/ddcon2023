@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .custom-input-label {
+    @apply block mb-1 text-sm text-white font-bold
+  }
+  .custom-input {
+    @apply rounded-xl py-1
+  }
+  .invalid-feedback {
+    @apply text-red-500 text-xs mt-1
+  }
+}
