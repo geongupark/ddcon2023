@@ -3,6 +3,7 @@ import { Form, Field } from "vee-validate";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { computed, ref } from "vue";
 
 const emit = defineEmits(["new-comment"]);
 
@@ -15,6 +16,8 @@ const schema = Yup.object().shape({
 });
 
 function onSubmit(values) {
+  document.querySelector('.comment-input input[name="password"]').value =
+    passwordBackUp.value;
   values["sessionid"] = "d1-1";
   Swal.fire({
     icon: "info",
@@ -37,6 +40,7 @@ function onSubmit(values) {
       values["id"] = result.value.data.id;
       emit("new-comment", values);
       document.querySelector("Form").reset();
+      passwordBackUp.value = "";
     }
   });
 }
@@ -52,14 +56,23 @@ async function postComment(body) {
     Swal.showValidationMessage(`다시 한 번 시도해주세요`);
   }
 }
+const passwordBackUp = ref("");
+function removeMaskedPassword(event) {
+  event.target.value = passwordBackUp.value;
+}
+function setMaskedPassword(event) {
+  passwordBackUp.value = event.target.value;
+  event.target.value = "*".repeat(passwordBackUp.value.length);
+}
 </script>
 <template>
   <div>
     <Form
-      class="p-3 rounded-2xl border border-white/[0.5]"
-      @submit.prevent="onSubmit"
+      class="comment-input p-3 rounded-2xl border border-white/[0.5]"
+      @submit="onSubmit"
       :validation-schema="schema"
       v-slot="{ errors }"
+      autocomplete="off"
     >
       <div class="flex justify-between">
         <div>
@@ -77,10 +90,11 @@ async function postComment(body) {
           <label class="custom-input-label">비밀번호</label>
           <Field
             name="password"
-            type="password"
+            type="text"
             class="custom-input p-1 text-sm"
-            :class="{ 'is-invalid': errors.password }"
             placeholder="4자리 비밀번호"
+            @focusin="removeMaskedPassword"
+            @focusout="setMaskedPassword"
           />
           <div class="invalid-feedback">{{ errors.password }}</div>
         </div>
@@ -106,3 +120,8 @@ async function postComment(body) {
     </Form>
   </div>
 </template>
+<style>
+[contenteditable="true"]:empty:before {
+  content: test;
+}
+</style>
