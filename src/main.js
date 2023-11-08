@@ -1,9 +1,7 @@
-import { createApp } from 'vue';
+import { createApp } from 'vue'
+import './style.css'
 import App from './App.vue'
-import router from './router';
 import VueKinesis from "vue-kinesis";
-import 'normalize.css';
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import {LottieAnimation} from "lottie-web-vue";
 
-createApp(App).use(router).use(VueKinesis).mount('#app')
+createApp(App).use(VueKinesis).component('LottieAnimation',LottieAnimation).mount('#app')
